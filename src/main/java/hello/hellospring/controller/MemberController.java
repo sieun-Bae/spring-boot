@@ -21,12 +21,14 @@ public class MemberController {
     @Autowired
     public MemberController(MemberService memberService) {
         this.memberService = memberService;
+        System.out.println("memberService = " + memberService.getClass());
     }
 
     @GetMapping("/members/new")
     public String createForm() {
         return "members/createMemberForm";
     }
+
     @PostMapping("/members/new")
     public String create(MemberForm form) {
         Member member = new Member();
